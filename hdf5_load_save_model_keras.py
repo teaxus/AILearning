@@ -86,7 +86,6 @@ def loadDataWithH5PY():
 def loadDataWithKerasModel():
     print("Using loaded model to predict...")
     model = load_model(model_path)
-    np.set_printoptions(precision=4)
     unknown = np.array([[6.1, 3.1, 5.1, 1.1]], dtype=np.float32)
     predicted = model.predict(unknown)
     print("Using model to predict species for features: ")
@@ -99,5 +98,7 @@ def loadDataWithKerasModel():
 
 
 if __name__ == '__main__':
+    # 使用h5py加载模型，重建dnn网络后预测
     loadDataWithH5PY()
+    # 直接通过keras加载模型，用原来方法预测
     loadDataWithKerasModel()
