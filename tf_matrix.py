@@ -1,6 +1,8 @@
 import tensorflow as tf
+import numpy as np
+tf.compat.v1.disable_eager_execution()
 
-
+# 创建矩阵
 def makeMatrix():
     # 矩阵  数组 M行N列  【】   内部也是【】表示     【里面 列数据】    【】中括号 行数
     # [[6,6]]  （一行两列数据）
@@ -34,6 +36,7 @@ def makeMatrix():
     print("矩阵的定义---End\n\n")
 
 
+# 矩阵的加乘
 def matrixOperation():
     print('''矩阵加乘--------------------Begin''')
     data1 = tf.constant([[5, 6]])
@@ -59,3 +62,35 @@ def matrixOperation():
         print("这种加法是[（data1的5 + data3的3）= 8 ,（data1的6 * data3的3）= 9 ]  ==>  [8,9]，matAdd：",
               matAdd.eval())
     print('''矩阵加乘---End\n\n''')
+
+
+# numpy的demo功能（和matrixOperation里面的差不多）
+def npDemo():
+    print('''numpy的用法--------------------Begin''')
+    data1 = np.array([1, 2, 3, 4, 5])
+    print("data1：", data1, ",维度:", data1.shape)
+    data2 = np.array([[1, 2], [3, 4]])
+    print("data2：", data2, ",维度:", data2.shape)
+    print("创建一个2*3，全部填充为0的数组", np.zeros([2, 3]))
+    print("创建一个2*2，全部填充为1的数组", np.ones([2, 2]))
+    # 改查
+    data2[1, 0] = 5
+    print("data2：", data2)
+    print("data2[1,1]：", data2[1, 1])
+
+    data3 = np.ones([2, 3])
+    print("data3：", data3)
+    print("data3*2：", data3 * 2)
+    print("data3/2：", data3 / 2)
+    print("data3+2：", data3 + 2)
+
+    print("矩阵的加和乘")
+    data4 = np.array([[1, 2, 3], [4, 5, 6]])
+    print("data3+data4", data3 + data4)
+    print("data3*data4", data3 * data4)
+    print('''numpy的用法---End''')
+
+if __name__ == '__main__':
+    makeMatrix()
+    matrixOperation()
+    npDemo()

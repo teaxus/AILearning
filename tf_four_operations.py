@@ -1,4 +1,5 @@
 import tensorflow as tf
+tf.compat.v1.disable_eager_execution()
 
 
 def fourOperations():
@@ -7,11 +8,11 @@ def fourOperations():
     print(data1)
     print(data2)
     # 如果使用到变量，需要init
-    init = tf.global_variables_initializer()
+    init = tf.compat.v1.global_variables_initializer()
 
     print('''tf的四则运算---Begin''')
     dataAdd = tf.add(data1, data2)
-    dataCopy = tf.assign(data2, dataAdd)  # dataAdd 赋值给 data2
+    dataCopy = tf.compat.v1.assign(data2, dataAdd)  # dataAdd 赋值给 data2
     dataMul = tf.multiply(data1, data2)
     dataSub = tf.subtract(data1, data2)
     dataDiv = tf.divide(data1, data2)
@@ -38,3 +39,10 @@ def valPlaceholder():
         print(sess.run(dataAdd, feed_dict={data1: 6, data2: 2}))
         # 1 data Add 2 data(feed_dict = data1：6，data2：2})
     print("val placeholder end\n\n")
+
+
+if __name__ == '__main__':
+    print("fourOperations------------:")
+    fourOperations()
+    print("valPlaceholder------------:")
+    valPlaceholder()

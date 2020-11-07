@@ -7,6 +7,7 @@ geckodriver.log
 *.sqlite3
 .*cache
 *.log
+*.h5
 /img
 /MNIST_data
 /output

@@ -26,3 +26,7 @@ def matplotlibDemo():
         plt.plot(x_fi, y_fi, 'g', lw=8)
 
     plt.show()
+
+
+if __name__ == '__main__':
+    matplotlibDemo()

@@ -23,3 +23,7 @@ def pxOperation():
 
     cv2.imshow('imgage', img)
     cv2.waitKey(0)
+
+
+if __name__ == '__main__':
+    pxOperation()

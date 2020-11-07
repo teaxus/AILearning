@@ -3,6 +3,7 @@ from tensorflow.keras.datasets import mnist
 import cv2
 import matplotlib.pyplot as plt
 import numpy
+import tensorflow as tf
 
 def list_split(items, n):
     return [items[i:i+n] for i in range(0, len(items), n)]
